@@ -10,13 +10,14 @@ const OrderRoutes = require("./Routes/OrderRoute");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
+const corsOptions = {
+  origin: ["https://get-styled.vercel.app", "https://get-styled.vercel.app/"],
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
 
-app.use(
-  cors({
-    origin: "https://get-styled.vercel.app/",
-    credentials: true,
-  })
-);
+app.use(cors(corsOptions));
 app.use(morgan("tiny"));
 app.use(cookieParser());
 app.use(bodyParser.json({ extended: true, limit: "5mb" }));
