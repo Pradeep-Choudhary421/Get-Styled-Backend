@@ -10,7 +10,14 @@ const OrderRoutes = require("./Routes/OrderRoute");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
-app.use(cors());
+
+app.use(
+  cors({
+    origin: "*",
+    methods:['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+  })
+);
 app.use(morgan("tiny"));
 app.use(cookieParser());
 app.use(bodyParser.json({ extended: true, limit: "5mb" }));
