@@ -6,14 +6,14 @@ exports.isAuthenticated = async (req, res, next) => {
   try {
     // const { token } = req.cookies;
     let tokn = req.headers["auth-x-token"];
-    if (!tokn.split("=")[1]) {
+    if (!tokn) {
       return res.status(401).json({
         success: false,
         message: "you are not authenticated",
       });
     }
     const decoded = await jwt.verify(
-      tokn.split("=")[1],
+      tokn,
       process.env.SECRET_KEY
     );
     req.user = await User.findById(decoded._id);
