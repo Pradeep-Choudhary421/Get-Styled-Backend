@@ -13,7 +13,7 @@ require("dotenv").config();
 
 app.use(
   cors({
-    origin: "https://get-styled-backend.onrender.com/",
+    origin: "https://get-styled-backend.onrender.com",
     credentials: true,
   })
 );
