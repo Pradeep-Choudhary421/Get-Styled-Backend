@@ -27,18 +27,21 @@ app.use(express.urlencoded({ extended: true, limit: "5mb" }));
 app.use("/user", UserRoutes);
 app.use("/product", ProductRoutes);
 app.use("/order", OrderRoutes);
-app.get("/", (res, req) => {
-  res.send = "Server is running";
+
+// Corrected the parameter order
+app.get("/", (req, res) => {
+  res.send("Server is running");
 });
 
 mongoose
   .connect(process.env.MONGODB_)
   .then(() => {
     app.listen(process.env.PORT, () => {
-      console.log(`server is connected to ${process.env.PORT}`);
+      console.log(`Server is connected to ${process.env.PORT}`);
     });
   })
   .catch((err) => {
-    console.log("err" + err.message);
+    console.log("Error: " + err.message);
   });
+
 module.exports = app;
