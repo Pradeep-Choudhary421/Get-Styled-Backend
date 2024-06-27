@@ -13,7 +13,7 @@ require("dotenv").config();
 
 app.use(
   cors({
-    origin: "https://get-styled.vercel.app",
+    origin: "https://get-styled.vercel.app/",
     credentials: true,
   })
 );
