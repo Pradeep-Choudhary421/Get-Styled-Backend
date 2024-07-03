@@ -11,7 +11,7 @@ const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 const corsOptions = {
-  origin: ["https://get-styled.vercel.app", "https://get-styled.vercel.app/"],
+  origin: "*",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
   optionsSuccessStatus: 204,
@@ -28,7 +28,7 @@ app.use("/user", UserRoutes);
 app.use("/product", ProductRoutes);
 app.use("/order", OrderRoutes);
 
-// Corrected the parameter order
+
 app.get("/", (req, res) => {
   res.send("Server is running");
 });
