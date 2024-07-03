@@ -17,7 +17,7 @@ const corsOptions = {
   optionsSuccessStatus: 204,
 };
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(morgan("tiny"));
 app.use(cookieParser());
 app.use(bodyParser.json({ extended: true, limit: "5mb" }));
