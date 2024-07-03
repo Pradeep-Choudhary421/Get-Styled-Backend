@@ -11,10 +11,11 @@ const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 const corsOptions = {
-  origin: "https://get-styled.vercel.app",
+  origin: ["http://localhost:5173/","https://get-styled.vercel.app/"],
   methods: ["GET", "POST"],
-  credentials: false,
+  credentials: true,
   optionsSuccessStatus: 204,
+  allowedHeaders: ["Content-Type"],
 };
 
 app.use(cors(corsOptions));
