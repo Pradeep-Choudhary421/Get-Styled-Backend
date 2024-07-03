@@ -12,12 +12,12 @@ require("dotenv").config();
 
 const corsOptions = {
   origin: "*",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  methods: ["GET", "POST"],
   credentials: true,
   optionsSuccessStatus: 204,
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(morgan("tiny"));
 app.use(cookieParser());
 app.use(bodyParser.json({ extended: true, limit: "5mb" }));
