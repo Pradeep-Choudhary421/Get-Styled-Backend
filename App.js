@@ -15,7 +15,6 @@ const corsOptions = {
   methods: ["GET", "POST"],
   credentials: true,
   optionsSuccessStatus: 204,
-  allowedHeaders: ["Content-Type"],
 };
 
 app.use(cors(corsOptions));
