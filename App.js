@@ -13,7 +13,7 @@ require("dotenv").config();
 const corsOptions = {
   origin: "https://get-styled.vercel.app/",
   methods: ["GET", "POST"],
-  credentials: true,
+  credentials: false,
   optionsSuccessStatus: 204,
 };
 
