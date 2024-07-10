@@ -10,15 +10,14 @@ const OrderRoutes = require("./Routes/OrderRoute");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
-const corsOptions = {
-  origin: "*",
-  methods: ["GET", "POST"],
-  credentials: true,
-  optionsSuccessStatus: 204,
-  allowedHeaders: "*", 
-};
-
-app.use(cors(corsOptions));
+// const corsOptions = {
+//   origin: "*",
+//   methods: ["GET", "POST"],
+//   credentials: true,
+//   optionsSuccessStatus: 204,
+//   allowedHeaders: "*", 
+// };
+app.use(cors());
 app.use(morgan("tiny"));
 app.use(cookieParser());
 app.use(bodyParser.json({ extended: true, limit: "5mb" }));
@@ -28,12 +27,9 @@ app.use(express.urlencoded({ extended: true, limit: "5mb" }));
 app.use("/user", UserRoutes);
 app.use("/product", ProductRoutes);
 app.use("/order", OrderRoutes);
-
-
 app.get("/", (req, res) => {
   res.send("Server is running");
 });
-
 mongoose
   .connect(process.env.MONGODB_)
   .then(() => {
