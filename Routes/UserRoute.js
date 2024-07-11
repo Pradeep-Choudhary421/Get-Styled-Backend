@@ -1,5 +1,5 @@
 const express = require("express")
-const { createUser, deleteUser, updateUser, getallusers, login } = require('../Controllers/UserController');
+const { createUser, deleteUser, updateUser, getallusers, login , sendOtp} = require('../Controllers/UserController');
 const {isAuthenticated} = require("../MiddleWare/Auth")
 const router = express.Router();
 router.post("/createUser", createUser)
