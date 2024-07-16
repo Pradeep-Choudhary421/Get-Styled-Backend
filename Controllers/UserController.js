@@ -167,7 +167,7 @@ const sendOtp = async (req, res) => {
   let mailingDeatils = {
     from: "pradeep9783552320@gmail.com",
     to: email,
-    subject: "OTP to reset your password",
+    subject: "OTP to reset your password on Get-Styled",
     text: `Your OTP is ${otp}`,
   };
 
@@ -178,7 +178,7 @@ const sendOtp = async (req, res) => {
         message: err.message,
       });
     } else {
-      res.status(200).json({
+      res.status(200).cookie("otp",otp).json({
         success: true,
         message: "OTP sent to your email",
         otp,
